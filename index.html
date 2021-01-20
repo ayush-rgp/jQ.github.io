@@ -74,7 +74,7 @@
 
                 <label for="telephone">telephone = </label>
         
-                <input type="text" name="telephone" id="telephone" placeholder="eg.12345678910">
+                <input type="text" name="telephone" id="phone" placeholder="eg.12345678910">
 
             </div>      
            
@@ -118,15 +118,17 @@
 
                 if (validateEmail($("#email").val()) == false) {
 
-                    errorMessage += " your email addreas is not valid ";
+                    errorMessage += "<p>your email is not valid</p>"
 
                 }
 
-                if ($.isNumeric($("#telephone").val()) == false) {
+                if ($.isNumeric($("#phone").val()) == false) {
 
-                    errorMessage += "your phone number is not numeric"
+                    errorMessage += "<p>your phone number is not valid</p>" 
 
                 }
+
+                alert(errorMessage);
 
             })            
 
