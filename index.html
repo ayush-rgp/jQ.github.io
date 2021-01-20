@@ -8,7 +8,51 @@
 
         <style type="text/css">
         
-            
+            body {
+
+                font-family: Helvetica, sans-serif;
+                font-size: 150%;
+                
+            }
+             
+            input {
+
+                padding: 5px 5px 9px 5px;
+                position: relative;
+                bottom: 3px;
+                font-size: 65%;
+                border: 2px soild grey;
+                border-radius: 8px;
+                margin-left: 5px;
+
+            } 
+
+            label {
+
+                float: left;
+                width: 250px;
+
+            }
+
+            #wrapper {
+
+                width: 600px;
+                margin: 0 auto;
+
+            }
+
+            .for {
+
+                margin-bottom: 15px;
+
+            }
+
+            #submit {
+
+                margin-left: 255px;
+                font-size: 20px;
+
+            }
 
         </style> 
 
@@ -16,13 +60,75 @@
     
     <body>
 
-        <label for="email">Email</label>
+        <div id="wrapper">
+
+            <div class="for">
+
+                <label for="email">Email = </label>
         
-        <input type="text" name="email" id="email" placeholder="eg.yourname@gmail.com"><br>
+                <input type="text" name="email" id="email" placeholder="eg.yourname@gmail.com">
+
+            </div>
+
+            <div class="for">
+
+                <label for="telephone">telephone = </label>
+        
+                <input type="text" name="telephone" id="telephone" placeholder="eg.12345678910">
+
+            </div>      
+           
+            <div class="for">
+
+                <label for="password">password = </label>
+        
+                <input type="password" name="password" id="password">
+
+            </div>      
+            
+            <div class="for">
+
+                <label for="password">Confirm password = </label>
+        
+                <input type="password" name="Confirm password" id="confirmpassword">
+
+            </div>      
+            
+            <div class="for">
+
+                <input type="submit" id="submit" value="sign-up">
+
+            </div>      
+            
+        </div>
 
         <script type="text/javascript">
 
+            function validateEmail($email) {
             
+                var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+            
+                return emailReg.test( $email );
+            
+            };
+
+            $("#submit").click(function(){
+
+                var errorMessage = "";
+
+                if (validateEmail($("#email").val()) == false) {
+
+                    errorMessage += " your email addreas is not valid ";
+
+                }
+
+                if ($.isNumeric($("#telephone").val()) == false) {
+
+                    errorMessage += "your phone number is not numeric"
+
+                }
+
+            })            
 
         </script>           
 
