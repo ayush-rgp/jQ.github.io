@@ -12,6 +12,8 @@
 
                 font-family: Helvetica, sans-serif;
                 font-size: 150%;
+                background-color: black;
+                border: 10px solid white;
                 
             }
              
@@ -24,6 +26,7 @@
                 border: 2px soild grey;
                 border-radius: 8px;
                 margin-left: 5px;
+                margin-top: 10px;
 
             } 
 
@@ -31,16 +34,19 @@
 
                 float: left;
                 width: 250px;
-                margin-top: 5px;
+                margin-top: 10px;
+                margin-left: 5px;
 
             }
 
             #wrapper {
 
-                width: 600px;
+                width: 550px;
                 margin: 0 auto;
-                border: 3px solid black;
+                border: 3px solid white;
                 border-radius: 5px;
+                background-color: turquoise;
+                margin-top: 200px;
 
             }
 
@@ -142,46 +148,46 @@
 
                 if ($("#email").val() == "") {
 
-                    fieldsMissing += "<br>Email";
+                    fieldsMissing += "<br>1:Email";
 
                 }
                 if ($("#phone").val() == "") {
 
-                    fieldsMissing += "<br>telephone";
+                    fieldsMissing += "<br>2:telephone";
 
                 }
                 if ($("#password").val() == "") {
 
-                    fieldsMissing += "<br>password";
+                    fieldsMissing += "<br>3:password";
 
                 }
                 if ($("#confirmpassword").val() == "") {
 
-                    fieldsMissing += "<br>Confirm your password";
+                    fieldsMissing += "<br>4:Confirm your password";
 
                 }
 
                 if (fieldsMissing != "") {
 
-                    errorMessage += "<p>the following field(s) are missing:" + fieldsMissing;
+                    errorMessage += "<p>!the following field(s) are missing:" + fieldsMissing;
 
                 }
 
                 if (validateEmail($("#email").val()) == false) {
 
-                    errorMessage += "<p>your email is not valid</p>"
+                    errorMessage += "<p>your email is not valid</p>";
 
                 }
 
                 if ($.isNumeric($("#phone").val()) == false) {
 
-                    errorMessage += "<p>your phone number is not valid</p>" 
+                    errorMessage += "<p>your phone number is not valid</p>";
 
                 }
 
                 if ($("#password").val() != $("#confirmpassword").val()) {
 
-                    errorMessage += "<p>your passwords don't match</p>"
+                    errorMessage += "<p>your passwords don't match</p>";
 
                 }
 
