@@ -16,23 +16,13 @@
     
     <body>
 
-        <p></p>
-        
         <script type="text/javascript">
 
-           $.ajax("info.txt")
-           
-           .done(function(data){
+            var regex = /chutiyap/;
+            
+            var string = "regax i donno";
 
-                $("p").html(data);
-
-           })
-           
-           .fail(function() {
-
-                alert("could get the data");
-
-           });
+            var result = string.match(regex);
 
         </script>           
 
