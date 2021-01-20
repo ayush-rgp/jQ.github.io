@@ -54,6 +54,21 @@
 
             }
 
+            #errormessage {
+
+                color: maroon;
+                margin-left: 30% !important;
+
+            } 
+
+            #succesmessage {
+
+                display: none;
+                color: green;
+                margin-bottom: 20px;
+
+            }
+
         </style> 
 
     </head>
@@ -61,6 +76,10 @@
     <body>
 
         <div id="wrapper">
+
+            <div id="errormessage"></div>
+
+            <div id="succesmessage">you've done it! congratulations.</div>
 
             <div class="for">
 
@@ -116,6 +135,35 @@
 
                 var errorMessage = "";
 
+                var fieldsMissing = "";
+
+                if ($("#email").val() == "") {
+
+                    fieldsMissing += "<br>Email";
+
+                }
+                if ($("#phone").val() == "") {
+
+                    fieldsMissing += "<br>telephone";
+
+                }
+                if ($("#password").val() == "") {
+
+                    fieldsMissing += "<br>password";
+
+                }
+                if ($("#confirmpassword").val() == "") {
+
+                    fieldsMissing += "<br>Confirm your password";
+
+                }
+
+                if (fieldsMissing != "") {
+
+                    errorMessage += "<p>the following field(s) are missing:" + fieldsMissing;
+
+                }
+
                 if (validateEmail($("#email").val()) == false) {
 
                     errorMessage += "<p>your email is not valid</p>"
@@ -128,7 +176,22 @@
 
                 }
 
-                alert(errorMessage);
+                if ($("#password").val() != $("#confirmpassword").val()) {
+
+                    errorMessage += "<p>your passwords don't match</p>"
+
+                }
+
+                if (errorMessage != "") {
+
+                    $("#errormessage").html(errorMessage);
+
+                } else { 
+
+                    $("#succesmessage").show();
+                    $("#errormessage").hide();
+
+                }
 
             })            
 
